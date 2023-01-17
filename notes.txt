@@ -1,0 +1,32 @@
+social
+
+users 
+--> 
+posts
+--> userId, id, type: "txt", "file", if(txt) content: required, if(file) file: required, comments:[]
+
+user:
+ - register => encrypt(password)
+ - login
+ - edit profile => if logged in
+ - activate account
+ - deactivate account
+ - logout
+ - delete account
+ - get profile
+ - edit password
+ - forget password
+
+posts 
+ - add
+ - get my posts
+ - getall (isMine)
+ - get single
+ - delete
+ - edit
+
+
+
+express, mongoose, validator, dotenv
+
+
