@@ -25,6 +25,18 @@ property crm:
         urls:[
             "addUser", "addbuild", ....
         ]
+    },
+    {
+        role:"Customer",
+        urls:[
+            "show buildings", "show area","buy unit"
+        ]
+    },
+    {
+        role:"user",
+        urls:[
+            "show projects"
+        ]
     }
 ]
  => projects 
