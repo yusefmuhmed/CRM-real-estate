@@ -2,31 +2,6 @@ const mongoose = require("mongoose")
 
 const areaSchema = mongoose.Schema({
     projectId: {type:String, required: true},
-    // areas: [{
-        
-    //     areaName: { type: String, required: true, trim: true },
-
-
-    //     buildings: [{
-
-    //         buildingNumber: { type: String, required: true, trim: true },
-    //         buildingImage: { type: String, trim: true },
-
-    //         floors: [{
-
-    //             floorNumber: { type: Number, required: true },
-
-    //             units: [{
-    //                 unitImages: [{ image: { type: String, trim: true } }],
-    //                 unitNumber: { type: Number, default: 4},
-    //                 unitPrice: { type: Number, default: 1000 }
-    //             }]
-
-    //         }]
-
-    //     }]
-
-    // }]
     areas: {
         
         area:[{
