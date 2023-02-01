@@ -9,23 +9,30 @@ class Area {
 			const areaName = req.body.areaName;
 			let area = null;
 
-			const isProjectExists = await projectModel.findById(projectId);
+			// check if area name is sent
+				if (!areaName) {
+					return myHelper.resHandler(res, 400, true, project, 'Area Name is not sent');
+				}
+			//
 
-			if (!isProjectExists) {
-				return myHelper.resHandler(res, 404, true, isProjectExists, 'Project is not exists');
-			}
+			// check if project exists
+				const isProjectExists = await projectModel.findById(projectId);
 
-			const areaData = await areaModel.find({
-				projectId: projectId
-			});
+				if (!isProjectExists) {
+					return myHelper.resHandler(res, 404, true, isProjectExists, 'Project is not exists');
+				}
+			//
 
-			const isAreaExists = areaData.length != 0;
+			// check if area exists 
+				const areaData = await areaModel.find({
+					projectId: projectId
+				});
 
-			if (!areaName) {
-				return myHelper.resHandler(res, 400, true, project, 'Area Name is not sent');
-			}
+				const isAreaExists = areaData.length != 0;
+			//
 
 			if (isAreaExists) {
+				
 				const id = areaData[0]._id.toString();
 				area = await areaModel.findByIdAndUpdate(
 					{
@@ -40,6 +47,7 @@ class Area {
 					},
 					{ new: true }
 				);
+				
 			} else {
 				area = new areaModel({
 					projectId: projectId,
